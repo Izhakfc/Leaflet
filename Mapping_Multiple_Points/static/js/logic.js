@@ -9,13 +9,18 @@ attribution: 'Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap
     maxZoom: 18,
     accessToken: API_KEY
 });
-//  Add a marker to the map for Los Angeles, California.
-let marker = L.marker([34.0522, -118.2437]).addTo(map);
-// Add a marker to the map for Los Angeles, California.
-L.circleMarker([34.0522, -118.2437], {
-  radius: 300,
-  color: "black",
-  fillColor: '#ffffa1'
-}).addTo(map);
 // Then we add our 'graymap' tile layer to the map.
 streets.addTo(map);
+// Get data from cties.js
+let cityData = cities;
+// Loop through the cities array and create one marker for each city.
+cityData.forEach(function(city) {
+  console.log(city)
+  L.circleMarker(city.location, {
+    radius: city.population/100000,
+    color: "orange",
+    fillColor: '#ffffa1'
+  })
+  .bindPopup("<h2>" + city.city + ", " + city.state + "</h2> <hr> <h3>Population " + city.population.toLocaleString() + "</h3>")
+  .addTo(map);
+});
