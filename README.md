@@ -31,3 +31,6 @@ The map has three different layers: **Earthquakes**, **Tectonic Plates** and **M
 
 ### Dark Map View
 ![Dark map view](./Resources/dark_map.PNG) 
+
+## Link to the map
+<code>https://izhakfc.github.io/Mapping_Earthquakes/</code>
